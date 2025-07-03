@@ -18,7 +18,7 @@ PhonePe, one of India’s leading digital payment platforms, has shared rich dat
 
 - **Python** (Pandas, Seaborn, Matplotlib)
 - **MySQL** for data storage and queries
-- **SQLAlchemy / mysql-connector-python** for DB connectivity
+- **Mysql-connector-python** for DB connectivity
 - **Streamlit** for dashboard creation
 - **Git & GitHub** for version control
 - **PhonePe Pulse JSON data**
