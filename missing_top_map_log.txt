@@ -1,0 +1,2 @@
+pulse/data/top/transaction/country/india/state\ladakh\2019\4.json → {'entityName': None, 'metric': {'type': 'TOTAL', 'count': 2014, 'amount': 10098656.16799601}}
+pulse/data/top/transaction/country/india/state\ladakh\2020\4.json → {'entityName': None, 'metric': {'type': 'TOTAL', 'count': 13717, 'amount': 36711603.92132313}}

@@ -1,0 +1,3 @@
+pulse/data/top/insurance/country/india/state\ladakh\2020\3.json → {'entityName': None, 'metric': {'type': 'TOTAL', 'count': 1, 'amount': 281.0}}
+pulse/data/top/insurance/country/india/state\ladakh\2020\4.json → {'entityName': None, 'metric': {'type': 'TOTAL', 'count': 1, 'amount': 658.0}}
+pulse/data/top/insurance/country/india/state\ladakh\2022\4.json → {'entityName': None, 'metric': {'type': 'TOTAL', 'count': 8, 'amount': 16020.0}}
