@@ -60,12 +60,12 @@ PhonePe, one of India’s leading digital payment platforms, has shared rich dat
 
 
 
-### Clone the repository
+##Clone the repository
 ```bash
 git clone https://github.com/your-username/pulse_data_project.git
 cd pulse_data_project
 
-### Configure Environment Variables
+##Configure Environment Variables
 
 Create a `.env` file in the project root with your MySQL credentials:
 
@@ -73,12 +73,12 @@ Create a `.env` file in the project root with your MySQL credentials:
 
 ---
 
-### Run ETL Script
+##Run ETL Script
 
 This script extracts JSON data from the PhonePe Pulse GitHub structure and pushes it into MySQL tables.
 
 ```bash
 python main.py
 
-### Run Dashboard
+##Run Dashboard
 streamlit run dashboard.py
