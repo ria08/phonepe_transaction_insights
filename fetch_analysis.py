@@ -145,7 +145,7 @@ plt.show()
 
 
 df_low_states = fetch_query_to_df(q.low_performing_states)
-low_states = df_low_states.sort_values(by="Total_Amount", ascending=False).head(10)
+low_states = df_low_states.sort_values(by="Total_Amount", ascending=True).head(10)
 plt.figure(figsize=(10, 6))
 sns.barplot(data=low_states, x="States", y="Total_Amount")
 plt.title("Low Performing States (Bottom 10 by Transaction Value)")
