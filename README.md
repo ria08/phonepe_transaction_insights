@@ -1,84 +1,99 @@
-# 📊 PhonePe Pulse Data Analysis & Interactive Dashboard
+# 📊 PhonePe Transaction Insights
 
-This project is a complete data analysis and visualization pipeline built on top of the **PhonePe Pulse GitHub dataset**. It extracts, transforms, and loads (ETL) JSON data into a MySQL database, performs SQL-based business analysis, and presents interactive visual insights via a **Streamlit dashboard**.
+## Overview
+PhonePe Transaction Insights is a data engineering and analytics project built on the PhonePe Pulse dataset. It ingests the published JSON data, loads it into a MySQL schema, and powers analysis queries and a Streamlit dashboard to explore transactions, users, devices, and insurance activity across India.
 
----
+## Key Features
+- **ETL pipeline** that parses PhonePe Pulse JSON files and populates MySQL tables.
+- **SQL-driven analysis** that answers business questions around transactions, user growth, and insurance adoption.
+- **Interactive Streamlit dashboard** for filtering by state, year, quarter, and device brand.
+- **Reusable query library** for analytics and visualization notebooks.
 
-## Project Overview
+## Project Architecture
+1. **Source data**: PhonePe Pulse JSON files under `pulse/data/...`.
+2. **ETL**: `main.py` reads JSON files, validates fields, and inserts rows into MySQL.
+3. **Storage**: `db_init.sql` defines the relational schema.
+4. **Analytics**:
+   - `queries.py` defines SQL queries.
+   - `fetch_analysis.py` and `connect_fetch_analysis.ipynb` run analyses.
+5. **Visualization**: `dashboard.py` provides the Streamlit dashboard.
 
-PhonePe, one of India’s leading digital payment platforms, has shared rich datasets that reveal user and transaction behavior across states, districts, devices, and categories. This project aims to explore that data and answer real-world business questions such as:
+## Repository Structure
+- `main.py` — ETL loader that ingests Pulse JSON and writes to MySQL.
+- `db_init.sql` — Database schema for all PhonePe Pulse tables.
+- `queries.py` — SQL query catalog used across analyses and dashboard.
+- `fetch_analysis.py` — Python script for chart-based analysis.
+- `connect_fetch_analysis.ipynb` — Notebook with exploratory analysis.
+- `dashboard.py` — Streamlit dashboard implementation.
+- `pulse/` — PhonePe Pulse data directory (JSON files).
 
-- Which states and quarters have the highest digital transactions?
-- How do different device brands perform in terms of user engagement?
-- Which districts drive the most transaction volume or app opens?
-- What is the growth potential for PhonePe's insurance services?
+## Prerequisites
+- **Python 3.9+**
+- **MySQL 8+**
+- Python dependencies:
+  - `mysql-connector-python`
+  - `pandas`
+  - `seaborn`
+  - `matplotlib`
+  - `streamlit`
+  - `python-dotenv`
 
----
-## Technologies Used
+## Environment Configuration
+Create a `.env` file in the project root and provide your MySQL credentials:
 
-- **Python** (Pandas, Seaborn, Matplotlib)
-- **MySQL** for data storage and queries
-- **Mysql-connector-python** for DB connectivity
-- **Streamlit** for dashboard creation
-- **Git & GitHub** for version control
-- **PhonePe Pulse JSON data**
+```env
+DB_USER=your_user
+DB_PASSWORD=your_password
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=phonepe_data
+```
 
+> ✅ Tip: Ensure `.env` is listed in `.gitignore` and never committed.
 
----
-
-## Technologies Used
-
-- **Python** (Pandas, Seaborn, Matplotlib)
-- **MySQL** for data storage and queries
-- **SQLAlchemy / mysql-connector-python** for DB connectivity
-- **Streamlit** for dashboard creation
-- **Git & GitHub** for version control
-- **PhonePe Pulse JSON data**
-
----
-
-## Business Case Studies Solved
-
-1. **Decoding Transaction Dynamics**  
-   → Understand patterns by state, quarter, and category.
-
-2. **Device Dominance & User Engagement**  
-   → Analyze engagement across mobile brands and regions.
-
-3. **Insurance Growth & Penetration**  
-   → Track insurance adoption and identify expansion zones.
-
-4. **Transaction Trends for Market Expansion**  
-   → Spot top and underperforming states/districts.
-
-5. **User Engagement & Growth Strategy**  
-   → Track registered users, app opens, and trends over time.
-
----
-
-## Setup Instructions
-
-
-
+## Database Setup
+Initialize the schema before running the ETL:
 
 ```bash
-git clone https://github.com/your-username/phonepe_transaction_insights.git
-cd phone_transaction_insights
-
-##Configure Environment Variables
-
-Create a `.env` file in the project root with your MySQL credentials:
-
-> Make sure `.env` is listed in `.gitignore` and never pushed to GitHub.
-
----
-
-##Run ETL Script
-
-This script extracts JSON data from the PhonePe Pulse GitHub structure and pushes it into MySQL tables.
+mysql -u <user> -p < db_init.sql
+```This creates the `phonepe_data` database and required tables.
+## Running the ETL
+Load the PhonePe Pulse data into MySQL:
 
 ```bash
 python main.py
 
-##Run Dashboard
+```The ETL logs any skipped rows into `missing_*_log.txt` files for review.
+
+## Running the Dashboard
+Start the Streamlit dashboard:
+
+```bash
+
 streamlit run dashboard.py
+```
+```
+
+The dashboard provides filters for:
+- **State**
+- **Year**
+- **Quarter**
+- **Device Brand**
+
+## Analytics & Case Studies
+Use `queries.py` with `fetch_analysis.py` or the notebook to explore:
+- Transaction volume by state, year, and quarter
+- Device brand dominance across regions
+- District-level transaction and app open trends
+- Insurance adoption and growth signals
+- User growth over time
+
+## Troubleshooting
+- **Empty dashboards or charts**: Verify your `.env` values and confirm MySQL is running.
+- **Missing data**: Ensure the `pulse/` directory contains the PhonePe Pulse JSON files.
+- **ETL errors**: Check `missing_*_log.txt` files to review skipped records.
+
+## Conclusion
+PhonePe Transaction Insights turns raw Pulse data into actionable insights by combining a structured ETL pipeline, a relational data model, and interactive visual analytics. It provides a solid foundation for further exploration—whether you want to add more business questions, enhance visualizations, or deploy the dashboard for wider use.
+## Database Setup
+Initialize the schema before running the ETL:
