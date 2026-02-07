@@ -1,4 +1,4 @@
-# 📊 PhonePe Transaction Insights
+# PhonePe Transaction Insights
 
 ## Overview
 PhonePe Transaction Insights is a data engineering and analytics project built on the PhonePe Pulse dataset. It ingests the published JSON data, loads it into a MySQL schema, and powers analysis queries and a Streamlit dashboard to explore transactions, users, devices, and insurance activity across India.
